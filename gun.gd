@@ -1,13 +1,17 @@
 extends Node3D
 
+@onready var rate_of_fire_timer: Timer= $Timer;
+
 @export var Bullet: PackedScene
 
 @export var muzzle_speed = 30;
-@export var millis_between_shots = 100;
-@export var rate_of_fire_timer: Timer;
+@export var millis_between_shots = 100.0;
+
 var can_shoot = true;
 
 func _ready() -> void:
+	rate_of_fire_timer.wait_time = float(millis_between_shots / 1000.0);
+	print("Updated rate_of_fire_wait_it", rate_of_fire_timer.wait_time)
 	pass
 	
 func _process(delta: float) -> void:
