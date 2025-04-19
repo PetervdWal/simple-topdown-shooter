@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo1kbavubq76e"]
+
+[ext_resource type="Script" uid="uid://vg256ra3oavh" path="res://gun.gd" id="1_vk1bi"]
+[ext_resource type="PackedScene" uid="uid://cd3nqyw47lpit" path="res://bullet.tscn" id="2_dk5gl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8ywq"]
+albedo_color = Color(0.046875, 0.0393677, 0.0393677, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vk1bi"]
+material = SubResource("StandardMaterial3D_r8ywq")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0759617, -0.00657933, 0)
+script = ExtResource("1_vk1bi")
+Bullet = ExtResource("2_dk5gl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_vk1bi")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.212132, -0.0707107, 0, 0.212132, 0.0707107, 0, 0, 0, 0.1, -0.34066, -0.0869942, 0)
+mesh = SubResource("BoxMesh_vk1bi")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00160669, -0.0503288, 0, 0.161497, -0.000500705, 0, 0, 0, 0.1, 0.00975639, -0.119515, 0)
+mesh = SubResource("BoxMesh_vk1bi")
+metadata/_edit_group_ = true
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(-4.36964e-08, 1.14423e-09, 1, 0.0261769, 0.999657, 0, -0.999657, 0.026177, -4.37114e-08, 0.253604, 0, 0)

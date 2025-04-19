@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cole8dwwihkrx"]
+[gd_scene load_steps=9 format=3 uid="uid://cole8dwwihkrx"]
 
 [ext_resource type="Script" uid="uid://etxpqx6ay55t" path="res://player.gd" id="1_u52ul"]
 [ext_resource type="Script" uid="uid://hb8xgoapyabk" path="res://Main.gd" id="1_vonw3"]
+[ext_resource type="Script" uid="uid://ckj2k54wvwcm3" path="res://gun_control.gd" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://bo1kbavubq76e" path="res://gun.tscn" id="4_0b4ue"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xgho"]
 albedo_color = Color(1, 0, 0, 1)
@@ -31,6 +33,13 @@ mesh = SubResource("CapsuleMesh_u52ul")
 transform = Transform3D(0.119017, -6.67581e-14, 2.22174e-10, -3.98556e-14, 0.196498, 0.00508274, -1.39485e-11, -0.000526848, 0.899616, 0.429827, 0.402562, -0.00254436)
 mesh = SubResource("BoxMesh_vonw3")
 skeleton = NodePath("../..")
+
+[node name="Right Hand" type="Marker3D" parent="Player/Body"]
+transform = Transform3D(6.99939, 0, -1.42109e-14, 0, 6.99939, 0, -2.27374e-13, 0, 6.99939, -1.25146e-08, 0, 0.572268)
+
+[node name="GunControl" type="Node" parent="Player"]
+script = ExtResource("3_oi3di")
+StartingWeapon = ExtResource("4_0b4ue")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 use_collision = true
